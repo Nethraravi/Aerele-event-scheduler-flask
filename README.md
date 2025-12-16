@@ -45,15 +45,15 @@ This system allows users to manage events and shared resources, allocate resourc
 ## 📂 Project Structure
 
 event_scheduler/
-│
-├── app/
-│ ├── init.py 
-│ ├── models.py 
-│ ├── routes.py 
-│ ├── utils.py 
-│ ├── templates/ 
-│
-├── screenshots/ 
+|
+|── app/
+| ├── init.py 
+| ├── models.py 
+| ├── routes.py 
+| ├── utils.py 
+| ├── templates/ 
+|
+|── screenshots/ 
 ├── video/ 
 ├── instance/ 
 ├── requirements.txt 
@@ -138,5 +138,4 @@ Campus Drive Assignment
 - The application follows clean project structure and separation of concerns.
 - Conflict detection logic is handled separately for better maintainability.
 - Screenshots and a demo video are included as mandatory submission requirements.
-
 
