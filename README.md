@@ -44,21 +44,21 @@ This system allows users to manage events and shared resources, allocate resourc
 
 ## 📂 Project Structure
 
-event_scheduler/
-├── app/
-│ ├── init.py           # App factory and initialization                                                            
-│ ├── models.py         # Database models (Event, Resource, Allocation)                                                                    
-│ ├── routes.py         # Application routes and views                                                                                          
-│ ├── utils.py          # Conflict detection logic
-│ └── templates/        # HTML templates (Bootstrap UI)                                                                
-│
-├── screenshots/        # UI screenshots for README
-├── video/              # Screen-recorded demo video
-├── instance/           # SQLite database file
-├── requirements.txt    # Project dependencies 
-├── run.py              # Application entry point
-├── .gitignore          # Git ignore rules
-└── README.md           # Project documentation
+event_scheduler/                                                                                                                                                                                                                
+├── app/                                                                                                                                                                                                                          
+│ ├── init.py           # App factory and initialization                                                                                                                                                                       
+│ ├── models.py         # Database models (Event, Resource, Allocation)                                                                                                                                                       
+│ ├── routes.py         # Application routes and views                                                                                                                                                                            
+│ ├── utils.py          # Conflict detection logic                                                                                                                                                                   
+│ └── templates/        # HTML templates (Bootstrap UI)                                                                                                                                                                      
+│                                                                                                                                                                                                   
+├── screenshots/        # UI screenshots for README                                                                                                                                                                                  
+├── video/              # Screen-recorded demo video                                                                                                                                                                            
+├── instance/           # SQLite database file                                                                                                                                                                                
+├── requirements.txt    # Project dependencies                                                                                                                                                                                   
+├── run.py              # Application entry point                                                                                                                                                                                
+├── .gitignore          # Git ignore rules                                                                                                                                                                                   
+└── README.md           # Project documentation                                                                                                                                
 
 ---
 
