@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Resource{% endblock %}
+
+{% block content %}
+
+<h2>Edit Resource</h2>
+
+<form method="POST" class="card p-4 shadow-sm">
+    <input type="hidden" name="resource_id" value="{{ resource.id }}">
+
+    <label class="form-label">Name</label>
+    <input class="form-control mb-3" name="name" value="{{ resource.name }}" required>
+
+    <label class="form-label">Type</label>
+    <input class="form-control mb-3" name="type" value="{{ resource.type }}" required>
+
+    <button class="btn btn-primary">Update Resource</button>
+</form>
+
+{% endblock %}

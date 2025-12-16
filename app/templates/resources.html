@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Manage Resources</h2>
+
+<div class="card p-3 mb-4">
+    <form method="POST" class="row g-2">
+        <div class="col-md-5">
+            <input type="text" name="name" class="form-control" placeholder="Resource Name" required>
+        </div>
+
+        <div class="col-md-5">
+            <input type="text" name="type" class="form-control" placeholder="Type (room / instructor)" required>
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100">Add</button>
+        </div>
+    </form>
+</div>
+
+<ul class="list-group">
+    {% for r in resources %}
+        <li class="list-group-item d-flex justify-content-between">
+            <span>{{ r.name }}</span>
+            <span class="badge bg-secondary">{{ r.type }}</span>
+            <a href="/resources/edit/{{ r.id }}" class="btn btn-sm btn-outline-secondary">
+                Edit
+            </a>
+
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Resources</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <a href="/resources">Resources</a> |
+        <a href="/events">Events</a> |
+        <a href="/allocate">Allocate</a> |
+        <a href="/report">Report</a>
+    </nav>
+    <hr>
+    
+    <h2>Add Resource</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Resource Name" required>
+        <input type="text" name="type" placeholder="Resource Type" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>All Resources</h2>
+
+    <ul>
+        {% for r in resources %}
+            <li>{{ r.name }} ({{ r.type }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>  -->
+
+
+

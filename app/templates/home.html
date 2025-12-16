@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Event Scheduling & Resource Allocation System</h1>
+    <p class="text-muted mt-2">
+        Manage events, allocate shared resources, prevent conflicts, and view utilization reports.
+    </p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Resources</h5>
+                <p class="card-text">
+                    Add and manage rooms, instructors, and equipment.
+                </p>
+                <a href="/resources" class="btn btn-outline-primary">
+                    Manage Resources
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Events</h5>
+                <p class="card-text">
+                    Create events with start and end times.
+                </p>
+                <a href="/events" class="btn btn-outline-primary">
+                    Manage Events
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Allocate</h5>
+                <p class="card-text">
+                    Assign resources to events with conflict detection.
+                </p>
+                <a href="/allocate" class="btn btn-outline-primary">
+                    Allocate Resources
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Reports</h5>
+                <p class="card-text">
+                    View resource utilization over a date range.
+                </p>
+                <a href="/report" class="btn btn-outline-primary">
+                    View Reports
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

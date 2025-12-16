@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Resource Utilization Report{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Resource Utilization Report</h2>
+
+<!-- Report Filter -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Select Date Range</h5>
+
+        <form method="POST" class="row g-3">
+            <div class="col-md-5">
+                <label class="form-label">Start Date</label>
+                <input type="datetime-local" name="start_date" class="form-control" required>
+            </div>
+
+            <div class="col-md-5">
+                <label class="form-label">End Date</label>
+                <input type="datetime-local" name="end_date" class="form-control" required>
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-primary w-100">Generate</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Report Results -->
+{% if report_data %}
+    {% for r in report_data %}
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ r.resource.name }}
+                    <span class="badge bg-secondary">{{ r.resource.type }}</span>
+                </h5>
+
+                <p class="mb-2">
+                    <strong>Total Hours Utilized:</strong>
+                    <span class="badge bg-success">{{ r.hours }}</span>
+                </p>
+
+                <h6>Upcoming Bookings</h6>
+                {% if r.upcoming %}
+                    <ul class="list-group list-group-flush">
+                        {% for e in r.upcoming %}
+                            <li class="list-group-item">
+                                <strong>{{ e.title }}</strong><br>
+                                <small class="text-muted">
+                                    {{ e.start_time }} → {{ e.end_time }}
+                                </small>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">No upcoming bookings</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Resource Utilization Report</title>
+</head>
+<body> 
+    <nav>
+        <a href="/resources">Resources</a> |
+        <a href="/events">Events</a> |
+        <a href="/allocate">Allocate</a> |
+        <a href="/report">Report</a>
+    </nav>
+    <hr>    
+    
+    <h2>Resource Utilization Report</h2>
+
+    <form method="POST">
+        <label>Start Date</label><br>
+        <input type="datetime-local" name="start_date" required><br><br>
+
+        <label>End Date</label><br>
+        <input type="datetime-local" name="end_date" required><br><br>
+
+        <button type="submit">Generate Report</button>
+    </form>
+
+    <hr>
+
+    {% if report_data %}
+        {% for r in report_data %}
+            <h3>{{ r.resource.name }} ({{ r.resource.type }})</h3>
+            <p><strong>Total Hours Used:</strong> {{ r.hours }}</p>
+
+            <strong>Upcoming Bookings:</strong>
+            <ul>
+                {% for e in r.upcoming %}
+                    <li>{{ e.title }} ({{ e.start_time }} → {{ e.end_time }})</li>
+                {% else %}
+                    <li>No upcoming bookings</li>
+                {% endfor %}
+            </ul>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html> -->

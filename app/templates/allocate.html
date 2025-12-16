@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Allocate Resources{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Allocate Resources to Events</h2>
+
+<!-- Allocation Form -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">New Allocation</h5>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Select Event</label>
+                <select name="event_id" class="form-select" required>
+                    {% for e in events %}
+                        <option value="{{ e.id }}">
+                            {{ e.title }} ({{ e.start_time }} → {{ e.end_time }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Select Resources</label>
+
+                {% for r in resources %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"
+                               name="resource_ids" value="{{ r.id }}"
+                               id="res{{ r.id }}">
+                        <label class="form-check-label" for="res{{ r.id }}">
+                            {{ r.name }} <span class="badge bg-secondary">{{ r.type }}</span>
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button class="btn btn-primary">Allocate</button>
+        </form>
+    </div>
+</div>
+
+<!-- Existing Allocations -->
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Existing Allocations</h5>
+
+        {% if allocations %}
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Event</th>
+                        <th>Resource</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in allocations %}
+                        <tr>
+                            <td>{{ a.title }}</td>
+                            <td>{{ a.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-muted">No allocations yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Allocate Resources</title>
+</head>
+<body> 
+    <nav>
+        <a href="/resources">Resources</a> |
+        <a href="/events">Events</a> |
+        <a href="/allocate">Allocate</a> |
+        <a href="/report">Report</a>
+    </nav>
+    <hr>
+
+    <h2>Allocate Resources to Event</h2>
+
+    <form method="POST">
+        <label>Select Event</label><br>
+        <select name="event_id" required>
+            {% for e in events %}
+                <option value="{{ e.id }}">{{ e.title }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Select Resources</label><br>
+        {% for r in resources %}
+            <input type="checkbox" name="resource_ids" value="{{ r.id }}">
+            {{ r.name }} ({{ r.type }})<br>
+        {% endfor %}
+
+        <br>
+        <button type="submit">Allocate</button>
+    </form>
+
+    <h2>Existing Allocations</h2>
+
+    <ul>
+        {% for a in allocations %}
+            <li>{{ a.title }} → {{ a.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->

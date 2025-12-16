@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Event{% endblock %}
+
+{% block content %}
+
+<h2>Edit Event</h2>
+
+<form method="POST" class="card p-4 shadow-sm">
+    <input type="hidden" name="event_id" value="{{ event.id }}">
+
+    <label class="form-label">Title</label>
+    <input class="form-control mb-3" name="title" value="{{ event.title }}" required>
+
+    <label class="form-label">Description</label>
+    <input class="form-control mb-3" name="description" value="{{ event.description }}">
+
+    <label class="form-label">Start Time</label>
+    <input type="datetime-local" class="form-control mb-3"
+           name="start_time" value="{{ event.start_time|replace(' ', 'T') }}" required>
+
+    <label class="form-label">End Time</label>
+    <input type="datetime-local" class="form-control mb-3"
+           name="end_time" value="{{ event.end_time|replace(' ', 'T') }}" required>
+
+    <button class="btn btn-primary">Update Event</button>
+</form>
+
+{% endblock %}

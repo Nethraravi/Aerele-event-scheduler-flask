@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Conflict Detected{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-danger">
+    <h4>Conflict Detected</h4>
+    <p>
+        Resource <strong>{{ resource.name }}</strong> is already allocated to
+        event <strong>{{ other_event.title }}</strong>.
+    </p>
+    <p>
+        Time clash:
+        {{ other_event.start_time }} → {{ other_event.end_time }}
+    </p>
+    <a href="/allocate" class="btn btn-outline-danger mt-2">Go Back</a>
+</div>
+
+{% endblock %}
