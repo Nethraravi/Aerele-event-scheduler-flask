@@ -47,19 +47,19 @@ This system allows users to manage events and shared resources, allocate resourc
 event_scheduler/
 │
 ├── app/
-│ ├── init.py # App factory and app initialization
-│ ├── models.py # Database models (Event, Resource, Allocation)
-│ ├── routes.py # Application routes and views
-│ ├── utils.py # Conflict detection logic
-│ ├── templates/ # HTML templates (Bootstrap UI)
+│ ├── init.py 
+│ ├── models.py 
+│ ├── routes.py 
+│ ├── utils.py 
+│ ├── templates/ 
 │
-├── screenshots/ # UI screenshots for README
-├── video/ # Screen-recorded demo video
-├── instance/ # SQLite database file
-├── requirements.txt # Project dependencies
-├── run.py # Application entry point
-├── .gitignore # Git ignore rules
-├── README.md # Project documentation
+├── screenshots/ 
+├── video/ 
+├── instance/ 
+├── requirements.txt 
+├── run.py 
+├── .gitignore 
+├── README.md 
 
 ---
 
@@ -138,6 +138,5 @@ Campus Drive Assignment
 - The application follows clean project structure and separation of concerns.
 - Conflict detection logic is handled separately for better maintainability.
 - Screenshots and a demo video are included as mandatory submission requirements.
-
 
 
